@@ -1,0 +1,80 @@
+<html>
+<head>
+	<title>DATA 608 - Module 5 Introduction to Javascript</title>
+	<link rel="stylesheet" href="StyleSheet.css">
+</head>
+
+//<style>
+//	body {background-color: lightblue;}
+//</style>
+
+<body>
+	<h1><i>DATA 608 - Module 5 Introduction to Javascript</i></h1>
+	<h2><i>Assignment for Beginner</i></h2>
+	<h3><i>Sin Ying Wong  &nbsp; &nbsp; April 18, 2021</i></h3><br>
+
+	<p>This is one of two homework assignments you can complete for this week (you must do two,
+you may do all three for extra credit). This is geared towards those of you who have never
+worked with javascript before.</P>
+
+	<p>Your assignment should be in the form of an HTML page, which I will be able to run locally.
+Refer to the file 'js_in_webpage.html' on the github page for instructions on setting up
+javascript to run on an HTML page, and how to run/debug.</p>
+
+	<p>You should complete both of these in 2 (or more) functions on one HTML page.</p>
+
+	<p>Create a function to reverse any word that you type in. This can be typed into either an input
+box or an alert box, and then print the result in a box or on the webpage.<p>
+
+	<form>
+  		<label for="word">Input a word:</label><br>
+  		<input type="text" id="word" size = 20>
+		<input type="button" value="Reverse the input" onClick="revWord();">
+	</form>
+	<p id = "revWord"></p><br>
+
+	<p>Create a function that takes an input number, and prints a table with the first 20 multiples of
+the number, in order 5x4.</P>
+	
+	
+	<form>
+  		<label for="number">Input a number:</label><br>
+  		<input type="number" id="number">
+		<input type="button" value="Create table" onClick="createTable();">
+	</form>
+	<p id = "numTable"></p><br>	
+
+
+
+
+
+	<script type="text/javascript">
+		function revWord(){
+			var word = document.getElementById("word").value;
+			document.getElementById("revWord").innerHTML = "Output: "+ word.split("").reverse().join("");
+		};
+
+		function createTable(){
+			var num = document.getElementById("number").value;
+			var numTable = "<table><tbody>"
+			for (i = 1; i <=20; i++){
+				if([1,5,9,13,17].includes(i)){
+					numTable += "<tr><td>" + num*i + "</td>"
+				} else if ([4,8,12,16,20].includes(i)){
+					numTable += "<td>" + num*i + "</td></tr>"
+				} else {
+					numTable += "<td>" + num*i + "</td>"
+				};
+			};
+			numTable += "</tbody></table>";
+			document.getElementById("numTable").innerHTML = numTable;
+		};
+
+	</script>	
+
+
+
+
+</body>
+
+</html>
